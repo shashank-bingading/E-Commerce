@@ -9,12 +9,14 @@ app.use(cors());
 
 app.use(express.json());
 
+const connectDB = require('./config/db');
+connectDB();
+
 app.use(
   cors({
     origin: "http://localhost:5173",
   })
 );
-
 
 app.get('/',(req,res)=>{
     res.status(200).json({message: "Connection successful"});
