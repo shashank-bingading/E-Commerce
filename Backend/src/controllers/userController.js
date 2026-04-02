@@ -21,6 +21,7 @@ export const registerUser = async (req, res) => {
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
+    //for creating a user, we use the create method of the User model, which takes an object with the user's name, email, and hashed password. After the user is created, we return a JSON response with the user's ID, name, email, and a token generated using the generateToken function.
     const user = await User.create({
       name,
       email,
@@ -59,6 +60,9 @@ export const authUser = async (req, res) => {
 };
 
 //placeholder for get user profile function
+
+// The getUserProfile function retrieves the profile of the currently authenticated user. It uses the user ID from the request object (which is set by the authentication middleware) to find the user in the database. 
+
 export const getUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
