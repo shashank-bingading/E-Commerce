@@ -11,6 +11,7 @@ const initialState = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
+  //shorthand syntax for initialState
     reducers: {
         setCrednentials: (state, action) => {
             state.userInfo = action.payload;

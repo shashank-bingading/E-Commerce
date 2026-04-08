@@ -1,13 +1,12 @@
-import React, { use, useEffect, useState } from 'react';
+import {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {fetchProducts} from '../store/productSlice';
 
 const HomeScreen = ()=>{
     const dispatch = useDispatch();
     const {items, loading, error} = useSelector(state => state.items);
-}   
 
-useEffect(()=>{
+    useEffect(()=>{
     dispatch(fetchProducts());
 }, [dispatch]);
 
@@ -30,4 +29,8 @@ return (
             </div>
         )}
     </div>
-);
+);      
+}   
+
+export default HomeScreen;
+
