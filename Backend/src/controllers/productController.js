@@ -1,7 +1,7 @@
 import Product from "../models/Product.js";
 
 // Get all products
-export const getProducts = async (req, res) => {
+export const getProducts = async (_, res) => {
     try {
         const products = await Product.find({});
         res.json(products);

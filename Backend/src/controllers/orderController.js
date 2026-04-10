@@ -3,7 +3,7 @@ import Order from "../models/Order.js";
 // Get all orders
 
 //If you pass {} (an empty object), you are telling the database: "I have no filters. Give me every single document in this collection
-export const getOrders = async (req, res) => {
+export const getOrders = async (_, res) => {
   try {
     const orders = await Order.find({}).populate("user", "name email");
     res.json(orders);

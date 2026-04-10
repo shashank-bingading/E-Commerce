@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, clearCart, addToCart } from "../store/cartSlice";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../components/NavBar";
 
 const CartScreen = () => {
   const dispatch = useDispatch();
@@ -22,7 +21,7 @@ const CartScreen = () => {
     }
   };
   const handleAdd = (cartItems) => {
-    if (cartItems.qty < cartItems.countInStock) {
+    if (cartItems.qty < cartItems.stock) {
       dispatch(addToCart({ ...cartItems, qty: cartItems.qty + 1 }));
     }
   };
