@@ -2,10 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 import { logout } from '../store/authSlice';
+
 const NavBar = () => {
   const dispatch = useDispatch();
-  const { userinfo } = useSelector(state => state.auth);
-  const {cartitems} = useSelector(state => state.cart);
+  const { userInfo } = useSelector(state => state.auth);
+  const {cartItems} = useSelector(state => state.cart);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -18,11 +19,11 @@ const NavBar = () => {
       </div>
       <div>
         <Link to="/cart">
-          Cart ({cartitems.reduce ((total, item) => total + item.quantity, 0)})
+          Cart ({cartItems.reduce ((total, item) => total + item.quantity, 0)})
         </Link>
-        {userinfo ? (
+        {userInfo ? (
           <>
-            <span>Welcome, {userinfo.name}</span>
+            <span>Welcome, {userInfo.name}</span>
             <button onClick={handleLogout}>Logout</button>
           </>
         ) : (
